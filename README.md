@@ -9,7 +9,7 @@ This tutorial will highlight only the steps to create your own private testnet. 
 * This tutorial is written for Linux, but it should work for Windows and Mac OS as well. You might need to adjust the Docker commands.
 
 ## Prepare and run Docker containers
-We make use Docker to create the nodes for our private testnet:
+We make use of Docker to create the nodes for our private testnet:
 1. Clone or download this Git repository;
 2. Open the command line and go to the subdirectory ```script/```;
 3. Run the next command. It will take a while to download and build the source codes from the ```master``` branch (approxiately 30 minutes depending on your computer speed). So take a break and be patient.
@@ -225,7 +225,7 @@ It will return something like this:
 
 ![Node 1 IP address](./images/node1_ipaddress.png)
 
-The IP address of ```node1``` is shown in the red rectangle, which ```172.23.0.3``` in this example. Make a note of this IP address. We will need it in the follow-up steps.
+The IP address of ```node1``` is shown in the red rectangle, which is ```172.23.0.3``` in this example. Make a note of this IP address. We will need it in the follow-up steps.
 
 Open another terminal and run the command:
 ```
