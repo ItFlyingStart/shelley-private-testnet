@@ -1,7 +1,7 @@
 {
   "ApplicationName": "cardano-sl",
   "ApplicationVersion": 0,
-  "GenesisFile": "genesis.json",
+  "GenesisFile": "../shared/genesis.json",
   "LastKnownBlockVersion-Alt": 0,
   "LastKnownBlockVersion-Major": 0,
   "LastKnownBlockVersion-Minor": 0,
