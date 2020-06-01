@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  node1:
+    container_name: node1
+    image: cardano-node:latest
+    build:
+        context: .
+        dockerfile: Dockerfile
+        args:
+            TAG: "master"
+    restart: unless-stopped
+    ports:
+      # Change left side if you want to change the outfacing port, and change the right side if you also change the NODEPORT
+      # Only change the right side if you have the internal config set up like that
+      - 3001:3001
+    networks:
+      - cardano-network
+    volumes:
+      - ./node-config/:/app/config/
+    environment:
+      - COMMAND=while true; do sleep 10; done
+  
+  node2:
+    container_name: node2
+    image: cardano-node:latest
+    restart: unless-stopped
+    ports:
+      # Change left side if you want to change the outfacing port, and change the right side if you also change the NODEPORT
+      # Only change the right side if you have the internal config set up like that
+      - 3002:3002
+    networks:
+      - cardano-network
+    volumes:
+      - ./node-config/:/app/config/
+    environment:
+      - COMMAND="/bin/bash"
+
+
+networks:
+  cardano-network:
