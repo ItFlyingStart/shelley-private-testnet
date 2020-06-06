@@ -24,11 +24,12 @@ We make use of Docker to create the nodes for our private testnet:
 
 ![Docker containers](./images/docker_compose_up_result.png)
 
-6. Alright, here is the plan. We have started 2 containers and they are connected via the private network ```cardano-network```. Both containers will make use of the shared folder ```node-config/```
+6. Alright, here is the plan. We have started 2 containers and they are connected via the private network ```cardano-network```. ```node1``` has the IP address ```172.22.0.3```, and ```node2``` has the IP address ```172.22.0.2```. If you want to have a different IP range, then you need to change the settings in the file ```docker-compose.yml```.
+   Both containers will make use of the shared folder ```node-config/```
 
 ![Network setup](./images/network_setup.png)
 
-7. Open a new terminal and connect to ```node1``` with the next command:
+1. Open a new terminal and connect to ```node1``` with the next command:
 ```
 sudo docker exec -it node1 bash
 ```
@@ -216,7 +217,8 @@ utxo2.skey
 utxo2.vkey
 ```
 
-#### Configure the connection settings in topology.json
+#### [Optional step] Configure the connection settings in topology.json
+If you have changed the predefined IP addresses in the file  ```docker-compose.yml```, then proceed with the next steps. Otherwise continue with the next step [Run the nodes](#runnodes).
 Run the next command in the container ```node1```:
 ```
 $ cat /etc/hosts
@@ -259,7 +261,7 @@ Fill in the address of the first container ```node1``:
 
 Save the file ```topology.json``` (```Ctrl```+```X```, then ```Y```+```Enter```).
 
-#### Run the nodes
+#### <a name="runnodes"></a>Run the nodes
 Well done so far. We can now have some fun, by starting the nodes.
 
 Generate the genesis configuration and adding some funds:

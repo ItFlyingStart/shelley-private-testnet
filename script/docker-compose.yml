@@ -15,7 +15,8 @@ services:
       # Only change the right side if you have the internal config set up like that
       - 3001:3001
     networks:
-      - cardano-network
+      cardano-network:
+        ipv4_address: 172.22.0.3
     volumes:
       - ./node-config/:/app/config/
     environment:
@@ -30,7 +31,8 @@ services:
       # Only change the right side if you have the internal config set up like that
       - 3002:3002
     networks:
-      - cardano-network
+      cardano-network:
+        ipv4_address: 172.22.0.2
     volumes:
       - ./node-config/:/app/config/
     environment:
@@ -39,3 +41,7 @@ services:
 
 networks:
   cardano-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.22.0.0/26
