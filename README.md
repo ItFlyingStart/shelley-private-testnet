@@ -29,7 +29,7 @@ We make use of Docker to create the nodes for our private testnet:
 
 ![Network setup](./images/network_setup.png)
 
-1. Open a new terminal and connect to ```node1``` with the next command:
+7. Open a new terminal and connect to ```node1``` with the next command:
 ```
 sudo docker exec -it node1 bash
 ```
